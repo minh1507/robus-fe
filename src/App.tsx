@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./modules/portal/home/home";
 
 function App() {
-  const { t, i18n } = useTranslation();
   return (
-    <>
-      <h1>{t('Welcome to React')}</h1>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>} /> 
+      </Routes>
+    </BrowserRouter>
   );
 }
 
