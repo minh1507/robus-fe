@@ -3,7 +3,7 @@ import { useState } from "react";
 function Home() {
   return (
     <>
-        <p>hello</p>
+        <p className="mt-2">hello</p>
     </>
   );
 }
