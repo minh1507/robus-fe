@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./home.scss";
 
-import { useTitle } from "../../hooks/title/title";
+import { useTitle } from "../../../hooks/title/title";
 
 function Home() {
   useTitle("Home")

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import "./auth.scss";
 
 import Yup from "../../../yupConfig";
-import { useTitle } from "../../hooks/title/title";
+import { useTitle } from "../../../hooks/title/title";
 import { Login } from "./type/login";
 
 function Auth() {
