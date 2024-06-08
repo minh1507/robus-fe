@@ -1,26 +1,52 @@
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    color-scheme: light dark;
-  
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  body{
-    margin: 0;
-  }
-  
-  h1, h2, h3, h4, h5, h6, p{
-    margin: 0 !important;
-  }
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
 
-  .input{
-    height: 35px;
-    font-size: 0.8rem;
-  }
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  input{
-    outline: none !important;
-  }
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0 !important;
+}
+
+.input {
+  height: 35px;
+  font-size: 0.8rem;
+}
+
+input {
+  outline: none !important;
+}
+
+.p-card .p-card-body  {
+  padding: 0;
+}
+
+.p-card-content{
+  padding: 0;
+}
+
+.button{
+  height: 30px;
+  border-radius: 5px 5px 5px 5px;
+
+  width: 100%;
+}
+
+small{
+  font-size: 0.8rem !important;
+  color: red;
+}
