@@ -31,22 +31,30 @@ input {
   outline: none !important;
 }
 
-.p-card .p-card-body  {
+.p-card .p-card-body {
   padding: 0;
 }
 
-.p-card-content{
+.p-card-content {
   padding: 0;
 }
 
-.button{
+.button {
   height: 30px;
   border-radius: 5px 5px 5px 5px;
 
   width: 100%;
 }
 
-small{
+small {
   font-size: 0.8rem !important;
   color: red;
 }
+
+@media screen and (max-width: 270px) {
+  body {
+    display: none;
+  }
+}
+
+
