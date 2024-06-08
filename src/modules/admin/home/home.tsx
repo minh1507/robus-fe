@@ -9,7 +9,7 @@ function Home() {
 
   return (
     <section className="home-admin-page">
-     
+      <p>body</p>
     </section>
   );
 }

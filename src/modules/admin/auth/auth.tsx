@@ -32,7 +32,7 @@ function Auth() {
   })
   const onSubmit = (data: Login) => {
     console.log(data)
-    navigate('/home-admin')
+    navigate('/admin/home')
   }
 
   const title = <h3 className="text-center">Sign in</h3>;
@@ -47,7 +47,7 @@ function Auth() {
       <small>{errors.username?.message}</small>
       <section className="p-inputgroup flex-1 input mt-3">
         <span className="p-inputgroup-addon">
-          <i className="pi pi-user"></i>
+          <i className="pi pi-lock"></i>
         </span>
         <InputText {...register("password")}  className="shadow-none" placeholder="Username" />
       </section>

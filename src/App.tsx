@@ -6,6 +6,7 @@ const Home = lazy(() => import('./modules/portal/home/home'));
 const Error = lazy(() => import('./components/error/error'));
 const Auth = lazy(() => import('./modules/admin/auth/auth'));
 const HomeAdmin = lazy(() => import('./modules/admin/home/home'));
+const MainAdmin = lazy(() => import('./modules/admin/layout/main/main'));
 
 function App() {
   return (
@@ -13,9 +14,15 @@ function App() {
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Navigate to="/" />} />
-          <Route path="/login-admin" element={<Auth />} />
-          <Route path="/home-admin" element={<HomeAdmin />} />
+          <Route path="home" element={<Navigate to="/" />} />
+
+          {/* Admin routes */}
+          <Route path="admin/login" element={<Auth />} />
+          <Route path="admin" element={<MainAdmin />}>
+            <Route path="home" element={<Navigate to="/admin" />} />
+            <Route index element={<HomeAdmin />} />
+          </Route>
+
           <Route path="*" element={<Error />} />
         </Routes>
       </Suspense>

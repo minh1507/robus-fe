@@ -1,11 +1,17 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import './error.scss'
 
 export function Error() {
     const navigate = useNavigate();
+    const location = useLocation();
 
     const click = () => {
-        navigate('/')
+        const pathArr = location.pathname.split('/')
+        if(pathArr.includes('admin')){
+          navigate('/admin')
+        }else{
+          navigate('/')
+        }
     }
 
 
