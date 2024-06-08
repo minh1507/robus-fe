@@ -10,6 +10,20 @@ const resources = {
       label: {
         username: 'username',
         password: 'password'
+      },
+      mix: {
+        login: 'login {{object}}',
+        logout: 'logout {{object}}'
+      },
+      message: {
+        success: 'successfully'
+      },
+      main: 'Trade and exchange food',
+      title: {
+        home: 'home',
+        login: 'login',
+        account: 'account',
+        role: 'role'
       }
     }
   },

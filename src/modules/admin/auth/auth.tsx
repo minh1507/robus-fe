@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Card } from "primereact/card";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
@@ -10,9 +10,14 @@ import "./auth.scss";
 import Yup from "../../../yupConfig";
 import { useTitle } from "../../../hooks/title/title";
 import { Login } from "./type/login";
+import useToast from "../../../hooks/toast/toast";
+import { useTranslation } from "react-i18next";
+import StringUtil from "../../common/util/string.util";
 
 function Auth() {
-  useTitle("Login")
+  const { showToast } = useToast();
+  const { t, i18n } = useTranslation();
+  useTitle(t('login'))
   const navigate = useNavigate();
   const schema = Yup.object().shape({
     username: Yup.string()
@@ -32,6 +37,7 @@ function Auth() {
   })
   const onSubmit = (data: Login) => {
     console.log(data)
+    showToast(StringUtil.firstLetterUppercase(t('mix.login', {object: 'success'})), 'success')
     navigate('/admin/home')
   }
 

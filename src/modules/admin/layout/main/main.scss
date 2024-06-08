@@ -1,0 +1,12 @@
+.layout-admin-page{
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    .layout-admin-page-main{
+        flex-grow: 1;
+
+        overflow-x: auto;
+    }
+}

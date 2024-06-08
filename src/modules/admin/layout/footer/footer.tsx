@@ -1,10 +1,11 @@
 import { useState } from "react";
+import './footer.scss'
 
 function Footer() {
   return (
-    <section>
-        <p>Footer</p>
-    </section>
+    <footer className="footer-admin-page">
+        <p>&copy; No copyright</p>
+    </footer>
   );
 }
 
