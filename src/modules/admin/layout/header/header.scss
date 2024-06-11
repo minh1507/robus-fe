@@ -1,7 +1,6 @@
 .header-admin-page {
     display: flex;
 
-    justify-content: space-between;
     align-items: center;
 
     background-color: lightblue;
@@ -24,6 +23,7 @@
 
     .header-admin-page-menu-bar{
         background-color: transparent !important;
+        flex-grow: 1;
 
         &:hover{
             background-color: transparent !important;

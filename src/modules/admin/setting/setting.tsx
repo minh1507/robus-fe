@@ -2,15 +2,15 @@ import { useState } from "react";
 import { useTitle } from "../../../hooks/title/title";
 import { useTranslation } from "react-i18next";
 
-function Role() {
+function Setting() {
   const {t} = useTranslation()
-  useTitle(t('role'))
+  useTitle(t('setting'))
 
   return (
-    <section className="role-admin-page">
-        role page
+    <section className="setting-admin-page">
+        setting page
     </section>
   );
 }
 
-export default Role;
+export default Setting;

@@ -8,17 +8,16 @@ import { Menubar } from 'primereact/menubar';
 import useToast from "../../../../hooks/toast/toast";
 import StringUtil from "../../../common/util/string.util";
 import { useTranslation } from "react-i18next";
+import { useCookies } from "react-cookie";
 
 function Header() {
   const { showToast } = useToast();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+  const [cookies, setCookie, removeCookie] = useCookies(['cookie-name']);
   const navigation = useNavigate()
   const menu = useRef<Menu>(null);
   const itemsMenuRight = [
     {
-      command: () => {
-        console.log(1)
-      },
       template: (item: any, options: any) => {
         return (
           <button onClick={(e) => options.onClick(e)} className={classNames(options.className, 'w-full p-link flex align-items-center p-2 pl-4 text-color hover:surface-200 border-noround')}>
@@ -30,6 +29,14 @@ function Header() {
           </button>
         );
       }
+    },
+    {
+      command: () => {
+        showToast(StringUtil.firstLetterUppercase(t('mix.logout', { object: 'success' })), 'success')
+        navigation('/admin/login')
+      },
+      label: 'Setting',
+      icon: 'pi pi-cog'
     },
     {
       command: () => {
@@ -49,24 +56,6 @@ function Header() {
         navigation('/admin')
       },
     },
-    // {
-    //   label: 'Categories',
-    //   icon: 'pi pi-search',
-    //   items: [
-    //     {
-    //       label: 'a',
-    //       icon: 'pi pi-bolt'
-    //     },
-    //     {
-    //       label: 'b',
-    //       icon: 'pi pi-server'
-    //     },
-    //     {
-    //       label: 'c',
-    //       icon: 'pi pi-pencil'
-    //     },
-    //   ]
-    // },
     {
       label: 'System',
       icon: 'pi pi-server',
@@ -88,8 +77,6 @@ function Header() {
       ]
     },
   ];
-
-
 
   return (
     <header className="header-admin-page">

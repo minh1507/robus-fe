@@ -16,7 +16,7 @@ import StringUtil from "../../common/util/string.util";
 
 function Auth() {
   const { showToast } = useToast();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   useTitle(t('login'))
   const navigate = useNavigate();
   const schema = Yup.object().shape({

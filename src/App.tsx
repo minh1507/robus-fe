@@ -1,36 +1,45 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LoadingSpinner from "./components/spinner/spinner";
-import { Suspense, lazy, useRef } from "react";
+import { Suspense, lazy } from "react";
 import { ToastProvider } from "./components/toast/toast";
 
-const Home = lazy(() => import('./modules/portal/home/home'));
-const Error = lazy(() => import('./components/error/error'));
-const Auth = lazy(() => import('./modules/admin/auth/auth'));
-const HomeAdmin = lazy(() => import('./modules/admin/home/home'));
-const MainAdmin = lazy(() => import('./modules/admin/layout/main/main'));
-const AcountAdmin = lazy(() => import('./modules/admin/account/account'));
-const RoleAdmin = lazy(() => import('./modules/admin/role/role'));
+const User = {
+  Home: lazy(() => import("./modules/portal/home/home"))
+}
+
+const Shared = {
+  Error: lazy(() => import("./components/error/error")),
+}
+
+const Admin = {
+  Layout: lazy(() => import("./modules/admin/layout/main/main")),
+  Auth: lazy(() => import("./modules/admin/auth/auth")),
+  Home: lazy(() => import("./modules/admin/home/home")),
+  Account: lazy(() => import("./modules/admin/account/account")),
+  Role: lazy(() => import("./modules/admin/role/role"))
+}
 
 function App() {
   return (
     <BrowserRouter>
       <Suspense fallback={<LoadingSpinner />}>
-        <ToastProvider> <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="home" element={<Navigate to="/" />} />
+        <ToastProvider>
+          <Routes>
+            <Route path="/" element={<User.Home />} />
+            <Route path="home" element={<Navigate to="/" />} />
 
-          {/* Admin routes */}
-          <Route path="admin/login" element={<Auth />} />
-          <Route path="admin" element={<MainAdmin />}>
-            <Route path="home" element={<Navigate to="/admin" />} />
-            <Route path="account" element={<AcountAdmin />} />
-            <Route path="role" element={<RoleAdmin />} />
-            <Route index element={<HomeAdmin />} />
-          </Route>
+            {/* Admin routes */}
+            <Route path="admin/login" element={<Admin.Auth />} />
+            <Route path="admin" element={<Admin.Layout />}>
+              <Route path="home" element={<Navigate to="/admin" />} />
+              <Route path="account" element={<Admin.Account />} />
+              <Route path="role" element={<Admin.Role />} />
+              <Route index element={<Admin.Home />} />
+            </Route>
 
-          <Route path="*" element={<Error />} />
-        </Routes></ToastProvider>
-
+            <Route path="*" element={<Shared.Error />} />
+          </Routes>
+        </ToastProvider>
       </Suspense>
     </BrowserRouter>
   );

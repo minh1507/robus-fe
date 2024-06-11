@@ -23,7 +23,8 @@ const resources = {
         home: 'home',
         login: 'login',
         account: 'account',
-        role: 'role'
+        role: 'role',
+        setting: 'setting'
       }
     }
   },
