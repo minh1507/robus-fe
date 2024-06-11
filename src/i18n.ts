@@ -9,7 +9,8 @@ const resources = {
       },
       label: {
         username: 'username',
-        password: 'password'
+        password: 'password',
+        name: 'name'
       },
       mix: {
         login: 'login {{object}}',
@@ -25,7 +26,7 @@ const resources = {
         account: 'account',
         role: 'role',
         setting: 'setting'
-      }
+      },
     }
   },
   fr: {

@@ -58,7 +58,7 @@ function Auth() {
         <InputText {...register("password")}  className="shadow-none" placeholder="Username" />
       </section>
       <small>{errors.password?.message}</small>
-      <Button className="button mt-3" label="Login"/>
+      <Button className="button mt-3 shadow-none" label="Login"/>
     </form>
   );
 

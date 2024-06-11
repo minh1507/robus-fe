@@ -59,10 +59,19 @@ small {
   padding: 0;
 }
 
+h1{
+  font-size: 2rem;
+}
+
 @media screen and (max-width: 270px) {
   body {
     display: none;
   }
 }
 
+@media screen and (max-width: 565px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+}
 

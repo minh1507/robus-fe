@@ -49,13 +49,6 @@ function Header() {
 
   const itemsMenuLeft = [
     {
-      label: 'Home',
-      icon: 'pi pi-home',
-      command: () => {
-        navigation('/admin')
-      },
-    },
-    {
       label: 'System',
       icon: 'pi pi-server',
       items: [
@@ -84,7 +77,7 @@ function Header() {
       <Menu model={itemsMenuRight} popup ref={menu} id="menu" popupAlignment="right" />
       <Avatar
         label="D"
-        size="normal"
+        size="large"
         onClick={(event) => menu.current?.toggle(event)}
         aria-controls="menu"
         aria-haspopup
