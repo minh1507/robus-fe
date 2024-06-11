@@ -16,7 +16,8 @@ const Admin = {
   Auth: lazy(() => import("./modules/admin/auth/auth")),
   Home: lazy(() => import("./modules/admin/home/home")),
   Account: lazy(() => import("./modules/admin/account/account")),
-  Role: lazy(() => import("./modules/admin/role/role"))
+  Role: lazy(() => import("./modules/admin/role/role")),
+  Setting: lazy(() => import("./modules/admin/setting/setting"))
 }
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
               <Route path="home" element={<Navigate to="/admin" />} />
               <Route path="account" element={<Admin.Account />} />
               <Route path="role" element={<Admin.Role />} />
+              <Route path="setting" element={<Admin.Setting />} />
               <Route index element={<Admin.Home />} />
             </Route>
 

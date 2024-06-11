@@ -32,8 +32,7 @@ function Header() {
     },
     {
       command: () => {
-        showToast(StringUtil.firstLetterUppercase(t('mix.logout', { object: 'success' })), 'success')
-        navigation('/admin/login')
+        navigation('/admin/setting')
       },
       label: 'Setting',
       icon: 'pi pi-cog'
