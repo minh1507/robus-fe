@@ -26,7 +26,7 @@ function Role() {
     username: Yup.string()
       .required()
       .label('search'),
-  });
+  })
 
   const {
     register,
