@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useTitle } from "../../../hooks/title/title";
+
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { BreadCrumb } from "primereact/breadcrumb";
@@ -8,21 +8,22 @@ import { Divider } from "primereact/divider";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Button } from "primereact/button";
-import Yup from "../../../yupConfig";
+import Yup from "../../../../yupConfig";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Toolbar } from "primereact/toolbar";
 import { Dialog } from "primereact/dialog";
 import { Dropdown } from "primereact/dropdown";
 import { Paginator } from "primereact/paginator";
-import "./account.scss";
+import { useTitle } from "../../../../hooks/title/title";
+import "./cannedFood.scss";
 
-function Account() {
+function CannedFood() {
   const { t } = useTranslation();
   const navigation = useNavigate();
-  useTitle(t("account"));
+  useTitle(t("CannedFood"));
   const [visible, setVisible] = useState(false);
-  const items = [{ label: t("account") }];
+  const items = [{ label: t("CannedFood") }];
   const home = {
     icon: "pi pi-home",
     command: () => {
@@ -32,77 +33,37 @@ function Account() {
 
   const [products, setProducts] = useState([
     {
-      age: 13,
-      username: "A1",
-      address: "2A Mĩ Đình",
-      number: "(84) 913924185",
-      gender: "Female",
-    },
-    {
-      age: 24,
-      username: "B1",
-      address: "3A Mĩ Đình",
-      number: "(84) 913924186",
-      gender: "Male",
-    },
-    {
-      age: 13,
-      username: "A1",
-      address: "2A Mĩ Đình",
-      number: "(84) 913924185",
-      gender: "Female",
-    },
-    {
-      age: 24,
-      username: "B1",
-      address: "3A Mĩ Đình",
-      number: "(84) 913924186",
-      gender: "Male",
-    },
-    {
-      age: 13,
-      username: "A1",
-      address: "2A Mĩ Đình",
-      number: "(84) 913924185",
-      gender: "Female",
-    },
-    {
-      age: 24,
-      username: "B1",
-      address: "3A Mĩ Đình",
-      number: "(84) 913924186",
-      gender: "Male",
-    },
-    {
-      age: 13,
-      username: "A1",
-      address: "2A Mĩ Đình",
-      number: "(84) 913924185",
-      gender: "Female",
-    },
-    {
-      age: 24,
-      username: "B1",
-      address: "3A Mĩ Đình",
-      number: "(84) 913924186",
-      gender: "Male",
+      category: " Frozen Food",
+      name: "rau muống xào tỏi",
+      description: "toi, rau muống, mỡ hành...",
+      image: "https://bing.com/th?id=OSK.a4618435f0f7019f53cc6310f8d3e8f9",
+      weight: "100 gram",
+      price: 10000,
     },
   ]);
+
+  const imageBodyTemplate = (product: { image: string }) => {
+    return (
+      <img
+        src={`${product.image}`}
+        alt={product.image}
+        className="w-6rem shadow-2 border-round"
+      />
+    );
+  };
 
   const [selectedProducts, setSelectedProducts] = useState([]);
 
   const schema = Yup.object().shape({
-    username: Yup.string().required("Username is required"),
-    gender: Yup.string().required(""),
-    age: Yup.number()
-      .required("Age is required")
-      .positive("is not positive")
-      .integer("is not integer"),
-    number: Yup.number()
+    name: Yup.string().required("Username is required"),
+    category: Yup.string().required(" category is required"),
+    description: Yup.string().required("Age is required"),
+    weight: Yup.number()
       .required("number is required")
       .positive("is not positive")
-      .integer("is not integer "),
-    address: Yup.string().required("Address is required"),
+      .required("is not required"),
+    price: Yup.number().required("price is required"),
+    image: Yup.string().required("image is required"),
   });
 
   const {
@@ -177,8 +138,10 @@ function Account() {
 
   const [selectedCity, setSelectedCity] = useState(null);
   const cities = [
-    { name: "Female", code: "F" },
-    { name: "Male", code: "M" },
+    { name: "Frozen Food", code: "FF" },
+    { name: "Canned Food", code: "CAF" },
+    { name: "Cooked Food", code: "COF" },
+    { name: "Raw food", code: "RF" },
   ];
 
   const [first, setFirst] = useState(0);
@@ -190,11 +153,14 @@ function Account() {
   };
 
   return (
-    <section className="account-admin-page">
+    <section className="cannedFood-admin-page">
       <BreadCrumb model={items} home={home} />
-      <form className="mt-3" onSubmit={handleSubmit(onSearch)}>
+      <form className="Fix mt-3" onSubmit={handleSubmit(onSearch)}>
         <section>
-          <InputText className="shadow-none" placeholder={t("name")} />
+          <InputText
+            className="shadow-none inputSearch"
+            placeholder={t("name")}
+          />
         </section>
         <section>
           <Button className="mt-3 shadow-none" label="Search" />
@@ -217,11 +183,12 @@ function Account() {
           selectionMode="multiple"
           headerStyle={{ width: "3rem" }}
         ></Column>
-        <Column field="username" header="Username"></Column>
-        <Column field="age" header="Age"></Column>
-        <Column field="gender" header="Gender"></Column>
-        <Column field="number" header="Number"></Column>
-        <Column field="address" header="Address"></Column>
+        <Column field="image" header="Image" body={imageBodyTemplate}></Column>
+        <Column field="name" header="Name Of Food"></Column>
+        <Column field="category" header="Category"></Column>
+        <Column field="description" header="Description"></Column>
+        <Column field="weight" header="Weight"></Column>
+        <Column field="price" header="Price"></Column>
         <Column
           body={actionBodyTemplate}
           exportable={false}
@@ -231,75 +198,87 @@ function Account() {
       </DataTable>
 
       <Dialog
-        header="Account"
+        header="ADD NEW FOOOD"
         visible={visible}
-        className="account-admin-page-dialog"
+        className="cannedFood-admin-page-dialog"
         onHide={() => {
           if (!visible) return;
           setVisible(false);
         }}
       >
         <section className="flex flex-wrap gap-4">
-          <section className="flex flex-column flex-1 gap-2">
-            <label htmlFor="username">Username</label>
+          <section className="flex flex-column gap-2 mt-3">
+            <label htmlFor="image">Image</label>
             <InputText
-              placeholder="Type username"
+              placeholder="Type Image"
               className="shadow-none w-full"
-              id="username"
-              aria-describedby="username-help"
-              {...register("username")}
+              id="Image"
+              aria-describedby="Image-help"
+              {...register("image")}
             />
-            {errors.username && <p>{errors.username.message}</p>}
+            {errors.image && <p>{errors.image.message}</p>}
           </section>
           <section className="flex flex-column flex-1 gap-2">
-            <label htmlFor="gender">Gender</label>
+            <label htmlFor="name">Name</label>
+            <InputText
+              placeholder="Type Name Of Food"
+              className="shadow-none w-full"
+              id="name"
+              aria-describedby="name-help"
+              {...register("name")}
+            />
+            {errors.name && <p>{errors.name.message}</p>}
+          </section>
+          <section className="flex flex-column flex-1 gap-2">
+            <label htmlFor="category">Category</label>
             <Dropdown
-              id="gender"
+              id="category"
               value={selectedCity}
               onChange={(e) => setSelectedCity(e.value)}
               options={cities}
               optionLabel="name"
-              placeholder="Select gender"
-              className="w-full shadow-none"
-              // {...register("gender")}
+              placeholder="Select a City"
+              className="w-full md:w-14rem"
+              checkmark={true}
+              highlightOnSelect={false}
             />
           </section>
         </section>
 
         <section className="flex flex-wrap gap-4 mt-3">
           <section className="flex flex-column flex-1 gap-2">
-            <label htmlFor="age">Age</label>
+            <label htmlFor="description">Description</label>
             <InputText
-              placeholder="Type age"
+              placeholder="Type description"
               className="shadow-none w-full"
-              id="age"
+              id="description"
               aria-describedby="age-help"
-              {...register("age")}
+              {...register("description")}
             />
-            {errors.age && <p>{errors.age.message}</p>}
+            {errors.description && <p>{errors.description.message}</p>}
           </section>
           <section className="flex flex-column flex-1 gap-2">
-            <label htmlFor="number">Number</label>
+            <label htmlFor="price">Price</label>
             <InputText
-              placeholder="Type number"
+              placeholder="Type price"
               className="shadow-none w-full"
-              id="number"
-              aria-describedby="number-help"
-              {...register("number")}
+              id="price"
+              aria-describedby="price-help"
+              {...register("price")}
             />
-            {errors.number && <p>{errors.number.message}</p>}
+            {errors.price && <p>{errors.price.message}</p>}
           </section>
         </section>
         <section className="flex flex-column gap-2 mt-3">
-          <label htmlFor="address">Address</label>
+          <label htmlFor="weight">Weight</label>
           <InputText
-            placeholder="Type address"
+            placeholder="Type weight"
             className="shadow-none w-full"
-            id="address"
-            aria-describedby="address-help"
-            {...register("address")}
+            id="weight"
+            aria-describedby="weight-help"
+            {...register("weight")}
           />
-          {errors.address && <p>{errors.address.message}</p>}
+          {errors.weight && <p>{errors.weight.message}</p>}
         </section>
 
         <div className="flex justify-content-end">
@@ -328,4 +307,4 @@ function Account() {
   );
 }
 
-export default Account;
+export default CannedFood;

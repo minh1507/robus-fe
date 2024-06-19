@@ -7,3 +7,15 @@
         width: 98%;
     }
 }
+p {
+    color: red;
+}
+td {
+    text-align: center;
+}
+.p-datatable .p-column-header-content {
+    display: flex;
+    /* align-items: center; */
+    align-items: center;
+    justify-content: center;
+}
