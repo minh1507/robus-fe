@@ -12,14 +12,14 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Paginator } from "primereact/paginator";
 import { useTitle } from "../../../../hooks/title/title";
-import "./rawFood.scss";
+import "./dessertFood.scss";
 
-function RawFood() {
+function DessertFood() {
   const { t } = useTranslation();
   const navigation = useNavigate();
-  useTitle(t("RawFood"));
+  useTitle(t("dessert Food"));
 
-  const items = [{ label: t("RawFood") }];
+  const items = [{ label: t("dessert Food") }];
   const home = {
     icon: "pi pi-home",
     command: () => {
@@ -29,56 +29,56 @@ function RawFood() {
 
   const [products, setProducts] = useState([
     {
-      category: " Raw Food",
-      name: "rau muống",
-      description: "toi, rau muống, mỡ hành...",
+      category: " dessert",
+      name: "chè hạt sen",
+      description: "hạt sen...",
       image:
-        "https://th.bing.com/th/id/OIP.nbVUVZ_6RO-V8KYCcZiHZgHaHa?w=800&h=800&rs=1&pid=ImgDetMain",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6tC-9N4CWV0tJXN_WvATrEQf7OaWTNU1J3_nwz9qsvvOYF4xZjExajb6EYsim",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "thịt heo",
-      description: "thịt ba chỉ, mỡ, hành, hạt tiêu...",
+      category: " dessert",
+      name: "Chè bưởi",
+      description: "bưởi ...",
       image:
-        "https://th.bing.com/th/id/OIP.FFli2mUrOwjPmx-sFVrFDQHaEL?rs=1&pid=ImgDetMain",
+        "https://s.meta.com.vn/img/thumb.ashx/Data/image/2021/11/19/cach-lam-thit-rang-chay-canh-1.jpg",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "thịt gà tươi",
-      description: "gà , ",
+      category: " dessert",
+      name: "Chè khoai môn",
+      description: "gà , nước, gừng, xả...",
       image:
-        "https://th.bing.com/th/id/R.93afbf0ddca0b9791c66c56bd345be56?rik=k8fO1v4pcWy1wQ&riu=http%3a%2f%2fwww.garanfkt.vn%2fpublic%2fupload%2fbaiviet%2fLbEz_uc-ga.jpg&ehk=D21D7o%2f4a%2b1jkR0i3izjHMTnk7B0T3I7cLA1UGsMpDY%3d&risl=&pid=ImgRaw&r=0",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyxf_G5DjdnvySMmfUeXF9L8w5iHlTWdkv6QzKscnQ64NTtAWYsaNVf5sk4oyl",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "thịt cá hồi",
+      category: " dessert",
+      name: "Bánh flan",
       description: "cá chép, gừng, xả, ớt...",
       image:
-        "https://th.bing.com/th/id/OIP.tyzpnvjeIL74VpI0lyP4fQHaEH?w=290&h=180&c=7&r=0&o=5&pid=1.7",
+        "https://th.bing.com/th/id/OIP._ebGjn8HK4ZFxZLPJsPqKwHaFj?w=600&h=450&rs=1&pid=ImgDetMain",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "củ khoai",
-      description: "củ khoai...",
+      category: " dessert",
+      name: "Kem dừa",
+      description: "kem , dừa...",
       image:
-        "https://cdn.tgdd.vn/Products/Images/8785/271508/bhx/khoai-lang-nhat-tui-1kg-4-10-cu-202205201543281286.jpg",
+        "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSgsOOV2G0izfpWWEDZHUOZxkZ_Q7tSr9lcRjaCNTz6JifOUi5rZJcSFpjyjIOO",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "băps cải",
-      description: "bắp cải...",
+      category: " dessert",
+      name: "bánh xoài",
+      description: "bột xoài...",
       image:
-        "https://th.bing.com/th/id/OIP.83ouOM4MMQYKFOpTyTmU2gHaEL?w=296&h=180&c=7&r=0&o=5&pid=1.7",
+        "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT7Q2m3nMitcQ2JvOC4_7eI1gwyhjbj-sBucxsihzEk7shexz3Dx0zhxtxau5-4",
       weight: "100 gram",
       price: 10000,
     },
@@ -200,4 +200,4 @@ function RawFood() {
   );
 }
 
-export default RawFood;
+export default DessertFood;

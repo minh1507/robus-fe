@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { BreadCrumb } from "primereact/breadcrumb";
@@ -11,9 +10,6 @@ import { Button } from "primereact/button";
 import Yup from "../../../../yupConfig";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Toolbar } from "primereact/toolbar";
-import { Dialog } from "primereact/dialog";
-import { Dropdown } from "primereact/dropdown";
 import { Paginator } from "primereact/paginator";
 import { useTitle } from "../../../../hooks/title/title";
 import "./cannedFood.scss";
@@ -22,7 +18,6 @@ function CannedFood() {
   const { t } = useTranslation();
   const navigation = useNavigate();
   useTitle(t("CannedFood"));
-  const [visible, setVisible] = useState(false);
   const items = [{ label: t("CannedFood") }];
   const home = {
     icon: "pi pi-home",
@@ -33,10 +28,56 @@ function CannedFood() {
 
   const [products, setProducts] = useState([
     {
-      category: " Frozen Food",
-      name: "rau muống xào tỏi",
-      description: "toi, rau muống, mỡ hành...",
-      image: "https://bing.com/th?id=OSK.a4618435f0f7019f53cc6310f8d3e8f9",
+      category: " Canned Food",
+      name: "Thịt Hộp Tulip",
+      description: "Thịt heo, mỡ hành...",
+      image:
+        "https://img.vn.my-best.com/product_images/dffd60eac529970b16286a4a29406db4.png?ixlib=rails-4.3.1&q=70&lossless=0&w=800&h=800&fit=clip&s=d1a0f939f99e6bfa17ff2a9a308fbce2",
+      weight: "100 gram",
+      price: 10000,
+    },
+    {
+      category: " Canned Food",
+      name: "Thịt Hộp Lotte The Luncheon Meat",
+      description: "thịt ba chỉ, mỡ, hành, hạt tiêu...",
+      image:
+        "https://img.vn.my-best.com/product_images/419d53aa87d42068deefc8421060e17a.png?ixlib=rails-4.3.1&q=70&lossless=0&w=800&h=800&fit=clip&s=9b482cc416bcd7fabe4eed2e2043907a",
+      weight: "100 gram",
+      price: 10000,
+    },
+    {
+      category: " Canned Food",
+      name: "Ức Gà Cắt Khúc Expect",
+      description: "ức gà , nước, gừng, xả...",
+      image:
+        "https://img.vn.my-best.com/product_images/87d21920ec977befaf461a6a75252a57.png?ixlib=rails-4.3.1&q=70&lossless=0&w=800&h=800&fit=clip&s=f1b8b14b76a840bbfd0b0d36c2416775",
+      weight: "100 gram",
+      price: 10000,
+    },
+    {
+      category: " Canned Food",
+      name: "Cá Ngừ Century Ngâm Xốt Gia Vị Cay",
+      description: "cá ngừ, gừng, xả, ớt...",
+      image:
+        "https://emartmall.com.vn/image/cache/catalog/products/748485102511/748485102511%20-%20new-600x600.jpg",
+      weight: "100 gram",
+      price: 10000,
+    },
+    {
+      category: " Canned Food",
+      name: "Vải Tươi Wenatur",
+      description: "vải nước...",
+      image:
+        "https://emartmall.com.vn/image/cache/catalog/products/8936086141257/8936086141257-600x600.jpg",
+      weight: "100 gram",
+      price: 10000,
+    },
+    {
+      category: " Canned Food",
+      name: " Mì Gà Vifo ",
+      description: "mỳ, hành...",
+      image:
+        "https://emartmall.com.vn/image/cache/catalog/products/8935311100410/8935311100410-600x600.jpg",
       weight: "100 gram",
       price: 10000,
     },
@@ -81,13 +122,6 @@ function CannedFood() {
     return (
       <React.Fragment>
         <Button
-          icon="pi pi-pencil"
-          rounded
-          outlined
-          className="mr-2 shadow-none"
-          onClick={() => setVisible(true)}
-        />
-        <Button
           icon="pi pi-trash"
           rounded
           outlined
@@ -99,50 +133,9 @@ function CannedFood() {
     );
   };
 
-  const leftToolbarTemplate = () => {
-    return (
-      <div className="flex flex-wrap gap-2">
-        <Button
-          label="New"
-          icon="pi pi-plus"
-          severity="success"
-          className="shadow-none"
-          onClick={() => setVisible(true)}
-        />
-        <Button
-          label="Delete"
-          icon="pi pi-trash"
-          severity="danger"
-          className="shadow-none"
-          onClick={() => {}}
-          disabled={!selectedProducts || !selectedProducts.length}
-        />
-      </div>
-    );
-  };
-
-  const rightToolbarTemplate = () => {
-    return (
-      <Button
-        label="Export"
-        icon="pi pi-upload"
-        className="shadow-none"
-        onClick={() => {}}
-      />
-    );
-  };
-
   const deleteProd = () => {
     console.log(1);
   };
-
-  const [selectedCity, setSelectedCity] = useState(null);
-  const cities = [
-    { name: "Frozen Food", code: "FF" },
-    { name: "Canned Food", code: "CAF" },
-    { name: "Cooked Food", code: "COF" },
-    { name: "Raw food", code: "RF" },
-  ];
 
   const [first, setFirst] = useState(0);
   const [rows, setRows] = useState(10);
@@ -167,11 +160,7 @@ function CannedFood() {
         </section>
       </form>
       <Divider />
-      <Toolbar
-        className="mb-3"
-        left={leftToolbarTemplate}
-        right={rightToolbarTemplate}
-      ></Toolbar>
+
       <DataTable
         value={products}
         tableStyle={{ minWidth: "50rem" }}
@@ -196,103 +185,6 @@ function CannedFood() {
           header="Action"
         ></Column>
       </DataTable>
-
-      <Dialog
-        header="ADD NEW FOOOD"
-        visible={visible}
-        className="cannedFood-admin-page-dialog"
-        onHide={() => {
-          if (!visible) return;
-          setVisible(false);
-        }}
-      >
-        <section className="flex flex-wrap gap-4">
-          <section className="flex flex-column gap-2 mt-3">
-            <label htmlFor="image">Image</label>
-            <InputText
-              placeholder="Type Image"
-              className="shadow-none w-full"
-              id="Image"
-              aria-describedby="Image-help"
-              {...register("image")}
-            />
-            {errors.image && <p>{errors.image.message}</p>}
-          </section>
-          <section className="flex flex-column flex-1 gap-2">
-            <label htmlFor="name">Name</label>
-            <InputText
-              placeholder="Type Name Of Food"
-              className="shadow-none w-full"
-              id="name"
-              aria-describedby="name-help"
-              {...register("name")}
-            />
-            {errors.name && <p>{errors.name.message}</p>}
-          </section>
-          <section className="flex flex-column flex-1 gap-2">
-            <label htmlFor="category">Category</label>
-            <Dropdown
-              id="category"
-              value={selectedCity}
-              onChange={(e) => setSelectedCity(e.value)}
-              options={cities}
-              optionLabel="name"
-              placeholder="Select a City"
-              className="w-full md:w-14rem"
-              checkmark={true}
-              highlightOnSelect={false}
-            />
-          </section>
-        </section>
-
-        <section className="flex flex-wrap gap-4 mt-3">
-          <section className="flex flex-column flex-1 gap-2">
-            <label htmlFor="description">Description</label>
-            <InputText
-              placeholder="Type description"
-              className="shadow-none w-full"
-              id="description"
-              aria-describedby="age-help"
-              {...register("description")}
-            />
-            {errors.description && <p>{errors.description.message}</p>}
-          </section>
-          <section className="flex flex-column flex-1 gap-2">
-            <label htmlFor="price">Price</label>
-            <InputText
-              placeholder="Type price"
-              className="shadow-none w-full"
-              id="price"
-              aria-describedby="price-help"
-              {...register("price")}
-            />
-            {errors.price && <p>{errors.price.message}</p>}
-          </section>
-        </section>
-        <section className="flex flex-column gap-2 mt-3">
-          <label htmlFor="weight">Weight</label>
-          <InputText
-            placeholder="Type weight"
-            className="shadow-none w-full"
-            id="weight"
-            aria-describedby="weight-help"
-            {...register("weight")}
-          />
-          {errors.weight && <p>{errors.weight.message}</p>}
-        </section>
-
-        <div className="flex justify-content-end">
-          <Button
-            onClick={handleSubmit((data) => {
-              console.log(data);
-              if (!visible) return;
-              setVisible(false);
-            })}
-            className="shadow-none mt-4"
-            label="Submit"
-          />
-        </div>
-      </Dialog>
 
       <div className="card">
         <Paginator

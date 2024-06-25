@@ -12,14 +12,14 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Paginator } from "primereact/paginator";
 import { useTitle } from "../../../../hooks/title/title";
-import "./rawFood.scss";
+import "./unprocessedFood.scss";
 
-function RawFood() {
+function UnprocessedFood() {
   const { t } = useTranslation();
   const navigation = useNavigate();
-  useTitle(t("RawFood"));
+  useTitle(t("ProcessedFood"));
 
-  const items = [{ label: t("RawFood") }];
+  const items = [{ label: t("ProcessedFood") }];
   const home = {
     icon: "pi pi-home",
     command: () => {
@@ -29,61 +29,60 @@ function RawFood() {
 
   const [products, setProducts] = useState([
     {
-      category: " Raw Food",
-      name: "rau muống",
-      description: "toi, rau muống, mỡ hành...",
+      category: " Prepared Food",
+      name: "ba chỉ bò mỹ đông lạnh",
+      description: "thị ba chỉ bò.",
       image:
-        "https://th.bing.com/th/id/OIP.nbVUVZ_6RO-V8KYCcZiHZgHaHa?w=800&h=800&rs=1&pid=ImgDetMain",
+        "https://th.bing.com/th/id/R.ad5abbbf2f33470ab3f37b2b9d10b677?rik=9si1UXQbl1vuGA&riu=http%3a%2f%2fmaychebienthit.com % 2fwp - content % 2fuploads % 2f2020 % 2f11 % 2fth % e1 % bb % 8bt - b % c3 % b2 - m % e1 % bb % b9.jpg & ehk=98rLE27Y7quKI6JwO8J % 2b3ANFs0rKjxi1WEYW9ZTpjJ0 % 3d & risl=& pid=ImgRaw & r=0",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "thịt heo",
-      description: "thịt ba chỉ, mỡ, hành, hạt tiêu...",
+      category: " Prepared Food",
+      name: "thịt gà đông lạnh  ",
+      description: "thịt gà...",
       image:
-        "https://th.bing.com/th/id/OIP.FFli2mUrOwjPmx-sFVrFDQHaEL?rs=1&pid=ImgDetMain",
+        "https://media.istockphoto.com/id/1330009627/photo/packaged-fresh-chicken-leg-for-sale-in-supermarket-displayed-on-shelves.jpg?s=612x612&w=0&k=20&c=FklBj0LPG-to964m7rE8xjoPj7WcA2v60shp5oPYy28=",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "thịt gà tươi",
-      description: "gà , ",
+      category: " Prepared Food",
+      name: "gà đông lạnh",
+      description: "gà , nước, gừng, xả...",
       image:
-        "https://th.bing.com/th/id/R.93afbf0ddca0b9791c66c56bd345be56?rik=k8fO1v4pcWy1wQ&riu=http%3a%2f%2fwww.garanfkt.vn%2fpublic%2fupload%2fbaiviet%2fLbEz_uc-ga.jpg&ehk=D21D7o%2f4a%2b1jkR0i3izjHMTnk7B0T3I7cLA1UGsMpDY%3d&risl=&pid=ImgRaw&r=0",
+        "https://luatvietphong.vn/wp-content/uploads/2021/08/big_thu-tuc-hai-quan-nhap-khau-thit-ga-dong-lanh.jpg",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "thịt cá hồi",
+      category: " Prepared Food",
+      name: "sườn bò đông lạnh ",
       description: "cá chép, gừng, xả, ớt...",
       image:
-        "https://th.bing.com/th/id/OIP.tyzpnvjeIL74VpI0lyP4fQHaEH?w=290&h=180&c=7&r=0&o=5&pid=1.7",
+        "https://th.bing.com/th/id/OIP.pxKha-Vl4LxqEo5JSdejowHaFk?rs=1&pid=ImgDetMain",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "củ khoai",
-      description: "củ khoai...",
+      category: " Prepared Food",
+      name: "rau củ đông lạnh",
+      description: "thịt lợn, ",
       image:
-        "https://cdn.tgdd.vn/Products/Images/8785/271508/bhx/khoai-lang-nhat-tui-1kg-4-10-cu-202205201543281286.jpg",
+        "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQYMwBug3OuaWlsY5dhLIAhOl-gnce55AybmcqfV7gK39V_pMlKI0VVvr_K8ok_",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "băps cải",
-      description: "bắp cải...",
+      category: " Prepared Food",
+      name: "rau củ đông lạnh",
+      description: "thịt lợn, ",
       image:
-        "https://th.bing.com/th/id/OIP.83ouOM4MMQYKFOpTyTmU2gHaEL?w=296&h=180&c=7&r=0&o=5&pid=1.7",
+        "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQYMwBug3OuaWlsY5dhLIAhOl-gnce55AybmcqfV7gK39V_pMlKI0VVvr_K8ok_",
       weight: "100 gram",
       price: 10000,
     },
   ]);
-
   const imageBodyTemplate = (product: { image: string }) => {
     return (
       <img
@@ -200,4 +199,4 @@ function RawFood() {
   );
 }
 
-export default RawFood;
+export default UnprocessedFood;

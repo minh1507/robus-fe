@@ -12,14 +12,14 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Paginator } from "primereact/paginator";
 import { useTitle } from "../../../../hooks/title/title";
-import "./rawFood.scss";
+import "./sideDish.scss";
 
-function RawFood() {
+function sideDish() {
   const { t } = useTranslation();
   const navigation = useNavigate();
-  useTitle(t("RawFood"));
+  useTitle(t("sideDish"));
 
-  const items = [{ label: t("RawFood") }];
+  const items = [{ label: t("sideDish") }];
   const home = {
     icon: "pi pi-home",
     command: () => {
@@ -29,56 +29,56 @@ function RawFood() {
 
   const [products, setProducts] = useState([
     {
-      category: " Raw Food",
-      name: "rau muống",
-      description: "toi, rau muống, mỡ hành...",
+      category: " side dish",
+      name: "Trứng Óp La",
+      description: "trứng...",
       image:
-        "https://th.bing.com/th/id/OIP.nbVUVZ_6RO-V8KYCcZiHZgHaHa?w=800&h=800&rs=1&pid=ImgDetMain",
+        "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTeAMUdqy4-kX3shGftkL5aapWO9KSBanJ_fJZhEEnyebIgfcwVj0IqiijtX_OW",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "thịt heo",
+      category: " side dish",
+      name: "soup",
       description: "thịt ba chỉ, mỡ, hành, hạt tiêu...",
       image:
-        "https://th.bing.com/th/id/OIP.FFli2mUrOwjPmx-sFVrFDQHaEL?rs=1&pid=ImgDetMain",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU_0YZSMeQpFUGXDtolKXxVYR7GcwNr3JvFG_ykuDC0fskohv4jVwIO6rAuubt",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "thịt gà tươi",
-      description: "gà , ",
+      category: " side dish",
+      name: "canh cải",
+      description: "cải, nước...",
       image:
-        "https://th.bing.com/th/id/R.93afbf0ddca0b9791c66c56bd345be56?rik=k8fO1v4pcWy1wQ&riu=http%3a%2f%2fwww.garanfkt.vn%2fpublic%2fupload%2fbaiviet%2fLbEz_uc-ga.jpg&ehk=D21D7o%2f4a%2b1jkR0i3izjHMTnk7B0T3I7cLA1UGsMpDY%3d&risl=&pid=ImgRaw&r=0",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjBZGmKWUVg9M3m6_SW8VkZ1UUChpiNhV7MXnv7lhxlIkqQd4AHcSG5wXqUvI8",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "thịt cá hồi",
-      description: "cá chép, gừng, xả, ớt...",
+      category: " side dish",
+      name: "Nộm",
+      description: "rau củ, tranh, đường...",
       image:
-        "https://th.bing.com/th/id/OIP.tyzpnvjeIL74VpI0lyP4fQHaEH?w=290&h=180&c=7&r=0&o=5&pid=1.7",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROYBt4o_je3r8E0fLqil-eCuURN0HfhyTPjr_nmVqsecrA8B1wTmHRvodiKImK",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "củ khoai",
-      description: "củ khoai...",
+      category: " side dish",
+      name: "rau cải luộc",
+      description: "rau cải gừng nước...",
       image:
-        "https://cdn.tgdd.vn/Products/Images/8785/271508/bhx/khoai-lang-nhat-tui-1kg-4-10-cu-202205201543281286.jpg",
+        "https://bepmina.vn/wp-content/uploads/2021/12/rau-cai-ngong-luoc.jpeg",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "băps cải",
-      description: "bắp cải...",
+      category: " side dish",
+      name: "súc xích",
+      description: "thịt heo...",
       image:
-        "https://th.bing.com/th/id/OIP.83ouOM4MMQYKFOpTyTmU2gHaEL?w=296&h=180&c=7&r=0&o=5&pid=1.7",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToyoJLde2OpCmX6mAwe5Ivnb_8oo8LjHF84xzEF0xm7R45V8UR5AoE4961FZjL",
       weight: "100 gram",
       price: 10000,
     },
@@ -200,4 +200,4 @@ function RawFood() {
   );
 }
 
-export default RawFood;
+export default sideDish;

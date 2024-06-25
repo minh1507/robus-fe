@@ -9,7 +9,6 @@ import useToast from "../../../../hooks/toast/toast";
 import StringUtil from "../../../common/util/string.util";
 import { useTranslation } from "react-i18next";
 import { useCookies } from "react-cookie";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Header() {
   const { showToast } = useToast();
@@ -138,6 +137,22 @@ function Header() {
           command: () => {
             navigation("/admin/frozenFood");
           },
+          items: [
+            {
+              label: "Unprocessed frozen foods.",
+              // icon: "pi pi-shop ",
+              command: () => {
+                navigation("/admin/unprocessedFood");
+              },
+            },
+            {
+              label: "Prepared frozen items",
+              // icon: "pi pi-shop ",
+              command: () => {
+                navigation("/admin/preparedFood");
+              },
+            },
+          ],
         },
         {
           label: "Canned food",
@@ -145,6 +160,22 @@ function Header() {
           command: () => {
             navigation("/admin/cannedFood");
           },
+          items: [
+            {
+              label: "Short Term Canned Food.",
+              // icon: "pi pi-shop ",
+              command: () => {
+                navigation("/admin/shortTermCannedFood");
+              },
+            },
+            {
+              label: "Long Term Canned Food.",
+              // icon: "pi pi-shop ",
+              command: () => {
+                navigation("/admin/longTermCannedFood");
+              },
+            },
+          ],
         },
         {
           label: "Cooked food",
@@ -154,29 +185,79 @@ function Header() {
           },
           items: [
             {
-              label: "Raw food.",
-              icon: "pi pi-shop ",
+              label: "Dessert food",
+              // icon: "pi pi-shop ",
               command: () => {
-                navigation("/admin/shop");
+                navigation("/admin/dessertFood");
+              },
+            },
+            {
+              label: "Side dish",
+              // icon: "pi pi-shop ",
+              command: () => {
+                navigation("/admin/sideDish");
+              },
+            },
+            {
+              label: "Main dish",
+              // icon: "pi pi-shop ",
+              command: () => {
+                navigation("/admin/mainDish");
               },
             },
           ],
         },
         {
           label: "Raw food",
-          // icon: "pi pi-user",
           command: () => {
             navigation("/admin/rawFood");
           },
           items: [
             {
-              label: "Raw food.",
-              icon: "pi pi-shop ",
+              label: "Animal Food.",
+              // icon: "pi pi-shop ",
               command: () => {
-                navigation("/admin/shop");
+                navigation("/admin/animalFood");
+              },
+            },
+            {
+              label: "Plant-based Food.",
+              // icon: "pi pi-shop ",
+              command: () => {
+                navigation("/admin/planBasedFood");
               },
             },
           ],
+        },
+      ],
+    },
+    {
+      label: "Chart",
+      // icon: "pi pi-server",
+      command: () => {
+        navigation("/admin/chart");
+      },
+      items: [
+        {
+          label: "Bar Chart",
+          // icon: "pi pi-shield",
+          command: () => {
+            navigation("/admin/barChart");
+          },
+        },
+        {
+          label: "Line Chart",
+          // icon: "pi pi-users",
+          command: () => {
+            navigation("/admin/lineChart");
+          },
+        },
+        {
+          label: "Pie Chart",
+          // icon: "pi pi-history ",
+          command: () => {
+            navigation("/admin/pieChart");
+          },
         },
       ],
     },

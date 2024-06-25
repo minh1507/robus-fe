@@ -12,14 +12,14 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Paginator } from "primereact/paginator";
 import { useTitle } from "../../../../hooks/title/title";
-import "./rawFood.scss";
+import "./animalFood.scss";
 
-function RawFood() {
+function AnimalFood() {
   const { t } = useTranslation();
   const navigation = useNavigate();
-  useTitle(t("RawFood"));
+  useTitle(t("animalFood"));
 
-  const items = [{ label: t("RawFood") }];
+  const items = [{ label: t("animalFood") }];
   const home = {
     icon: "pi pi-home",
     command: () => {
@@ -29,16 +29,16 @@ function RawFood() {
 
   const [products, setProducts] = useState([
     {
-      category: " Raw Food",
-      name: "rau muống",
-      description: "toi, rau muống, mỡ hành...",
+      category: "animal Food",
+      name: "trứng",
+      description: "trứng...",
       image:
-        "https://th.bing.com/th/id/OIP.nbVUVZ_6RO-V8KYCcZiHZgHaHa?w=800&h=800&rs=1&pid=ImgDetMain",
+        "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRdA-hspIYdAHEYxiZ9Y8MxmMfoenSgQAOOAPdfeY63wOKoZOroCo8d7htbQeSu",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
+      category: " animel Food",
       name: "thịt heo",
       description: "thịt ba chỉ, mỡ, hành, hạt tiêu...",
       image:
@@ -47,7 +47,7 @@ function RawFood() {
       price: 10000,
     },
     {
-      category: " Frozen Food",
+      category: " animal Food",
       name: "thịt gà tươi",
       description: "gà , ",
       image:
@@ -56,7 +56,7 @@ function RawFood() {
       price: 10000,
     },
     {
-      category: " Frozen Food",
+      category: " animal Food",
       name: "thịt cá hồi",
       description: "cá chép, gừng, xả, ớt...",
       image:
@@ -65,20 +65,20 @@ function RawFood() {
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "củ khoai",
-      description: "củ khoai...",
+      category: " animal Food",
+      name: "sữa bò",
+      description: "sữa bò...",
       image:
-        "https://cdn.tgdd.vn/Products/Images/8785/271508/bhx/khoai-lang-nhat-tui-1kg-4-10-cu-202205201543281286.jpg",
+        "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTCeviMHdk3NjQ8ey9cBQxo3wF2jJgM5UqjVAc2HAh3kiYa7X7HjsdNPDfdxlOP",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "băps cải",
-      description: "bắp cải...",
+      category: " animal Food",
+      name: "mật ongi",
+      description: "mật ong...",
       image:
-        "https://th.bing.com/th/id/OIP.83ouOM4MMQYKFOpTyTmU2gHaEL?w=296&h=180&c=7&r=0&o=5&pid=1.7",
+        "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQiJZ2oQNaIZ8S5Baisgt-8ShdjBYbWcLb_TSYqzHTV5xdIk6W9gFh_eSkP4pdX",
       weight: "100 gram",
       price: 10000,
     },
@@ -200,4 +200,4 @@ function RawFood() {
   );
 }
 
-export default RawFood;
+export default AnimalFood;

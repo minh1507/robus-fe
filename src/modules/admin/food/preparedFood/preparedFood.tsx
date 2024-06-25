@@ -12,14 +12,14 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Paginator } from "primereact/paginator";
 import { useTitle } from "../../../../hooks/title/title";
-import "./rawFood.scss";
+import "./preparedFood.scss";
 
-function RawFood() {
+function PreparedFood() {
   const { t } = useTranslation();
   const navigation = useNavigate();
-  useTitle(t("RawFood"));
+  useTitle(t("PreparedFood"));
 
-  const items = [{ label: t("RawFood") }];
+  const items = [{ label: t("PreparedFood") }];
   const home = {
     icon: "pi pi-home",
     command: () => {
@@ -29,56 +29,47 @@ function RawFood() {
 
   const [products, setProducts] = useState([
     {
-      category: " Raw Food",
-      name: "rau muống",
-      description: "toi, rau muống, mỡ hành...",
+      category: " processed Food",
+      name: "Thị heo đã tẩm ướp",
+      description: "thị heo, mắm muối , mì chính.",
       image:
-        "https://th.bing.com/th/id/OIP.nbVUVZ_6RO-V8KYCcZiHZgHaHa?w=800&h=800&rs=1&pid=ImgDetMain",
+        "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT3jLo8OvT90edgm1fVGC3PROYZ5pvS1LbLeJZx7KuM3_JhIv3G39xEp2Vkwsr9",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "thịt heo",
-      description: "thịt ba chỉ, mỡ, hành, hạt tiêu...",
+      category: " processed Food",
+      name: "bánh bao  ",
+      description: "thịt heo , bột ...",
       image:
-        "https://th.bing.com/th/id/OIP.FFli2mUrOwjPmx-sFVrFDQHaEL?rs=1&pid=ImgDetMain",
+        "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSpwIAc-iUjWnS6grXutNqpeWCf-3P3rCeDZE-hv0w1SHF7S3XFQrdy2NHZv2ZJ",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "thịt gà tươi",
-      description: "gà , ",
+      category: " processed Food",
+      name: "kem",
+      description: "kem...",
       image:
-        "https://th.bing.com/th/id/R.93afbf0ddca0b9791c66c56bd345be56?rik=k8fO1v4pcWy1wQ&riu=http%3a%2f%2fwww.garanfkt.vn%2fpublic%2fupload%2fbaiviet%2fLbEz_uc-ga.jpg&ehk=D21D7o%2f4a%2b1jkR0i3izjHMTnk7B0T3I7cLA1UGsMpDY%3d&risl=&pid=ImgRaw&r=0",
+        "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQqmWVghiWr_Hi4RLmrXePdGMKBK0CFY1nFi5endxu0vLinweY1KGHq9VHJTjeS",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "thịt cá hồi",
+      category: " processed Food",
+      name: "phở ",
       description: "cá chép, gừng, xả, ớt...",
       image:
-        "https://th.bing.com/th/id/OIP.tyzpnvjeIL74VpI0lyP4fQHaEH?w=290&h=180&c=7&r=0&o=5&pid=1.7",
+        "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQyLa5eNRT34YTwLmwmUrzY44xvQr7nSOe-TpgPGaEGyPH5mptqPCRgCm2x08dt",
       weight: "100 gram",
       price: 10000,
     },
     {
-      category: " Frozen Food",
-      name: "củ khoai",
-      description: "củ khoai...",
+      category: " processed Food",
+      name: "nsack",
+      description: "khoai tây , ",
       image:
-        "https://cdn.tgdd.vn/Products/Images/8785/271508/bhx/khoai-lang-nhat-tui-1kg-4-10-cu-202205201543281286.jpg",
-      weight: "100 gram",
-      price: 10000,
-    },
-    {
-      category: " Frozen Food",
-      name: "băps cải",
-      description: "bắp cải...",
-      image:
-        "https://th.bing.com/th/id/OIP.83ouOM4MMQYKFOpTyTmU2gHaEL?w=296&h=180&c=7&r=0&o=5&pid=1.7",
+        "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTxKwre_IQ78B4wiZq4zR4TNwQ8Ik8gDxxFhOVuIqBX37OcDgrmnViGGJRhshWb",
       weight: "100 gram",
       price: 10000,
     },
@@ -200,4 +191,4 @@ function RawFood() {
   );
 }
 
-export default RawFood;
+export default PreparedFood;
