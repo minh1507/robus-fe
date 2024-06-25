@@ -12,14 +12,14 @@ import { Button } from "primereact/button";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Paginator } from "primereact/paginator";
-import "./role.scss";
+import "./seller.scss";
 
-function Role() {
+function Seller() {
   const { t } = useTranslation();
   const navigation = useNavigate();
-  useTitle(t("role"));
+  useTitle(t("seller"));
   const [visible, setVisible] = useState(false);
-  const items = [{ label: t("role") }];
+  const items = [{ label: t("seller") }];
   const home = {
     icon: "pi pi-home",
     command: () => {
@@ -33,76 +33,49 @@ function Role() {
 
   const [products, setProducts] = useState([
     {
-      role: "Admin",
-      type: "system",
-      createOn: "Feb 6, 2021 10:59:41 AM",
-      numberUser: "6",
+      name: "Ca Quynh Son",
+      phone: "08564712543",
+      email: "namdhgch190700@gmail.com",
+      address: "250 nguyen xien",
+      business_Type: "grocery store",
+      registration_Time: "	Feb 6, 2021 10:59:41 AM",
+      account_Status: "Online",
     },
     {
-      role: "User ",
-      type: "Custom",
-      createOn: "Feb 6, 2021 11:59:41 AM",
-      numberUser: "600",
+      name: "Nguyen Thi Huyen",
+      phone: "09756842531",
+      email: "namdhgch190700@gmail.com",
+      address: "250 nguyen xien",
+      business_Type: "grocery store",
+      registration_Time: "	Feb 6, 2021 10:59:41 AM",
+      account_Status: "Online",
     },
     {
-      role: "Seller ",
-      type: "Custom",
-      createOn: "Feb 6, 2021 11:50:41 AM",
-      numberUser: "60",
+      name: "le viet phuong",
+      phone: "0932201001",
+      email: "namdhg190700@gmail.com",
+      address: "250 nguyen xien",
+      business_Type: "hotel",
+      registration_Time: "	Feb 6, 2021 10:59:41 AM",
+      account_Status: "disabled",
     },
     {
-      role: "Admin",
-      type: "system",
-      createOn: "Feb 6, 2021 10:59:41 AM",
-      numberUser: "6",
+      name: "Duong Duc Anh",
+      phone: "08653378573",
+      email: "DuongDucAnh1@gmail.com",
+      address: "250 nguyen xien",
+      business_Type: "restaurant",
+      registration_Time: "	Feb 6, 2021 10:59:41 AM",
+      account_Status: "Online",
     },
     {
-      role: "User ",
-      type: "Custom",
-      createOn: "Feb 6, 2021 11:59:41 AM",
-      numberUser: "600",
-    },
-    {
-      role: "Seller ",
-      type: "Custom",
-      createOn: "Feb 6, 2021 11:50:41 AM",
-      numberUser: "60",
-    },
-    {
-      role: "Admin",
-      type: "system",
-      createOn: "Feb 6, 2021 10:59:41 AM",
-      numberUser: "6",
-    },
-    {
-      role: "User ",
-      type: "system",
-      createOn: "Feb 6, 2021 11:59:41 AM",
-      numberUser: "600",
-    },
-    {
-      role: "Seller ",
-      type: "Custom",
-      createOn: "Feb 6, 2021 11:50:41 AM",
-      numberUser: "60",
-    },
-    {
-      role: "Admin",
-      type: "system",
-      createOn: "Feb 6, 2021 10:59:41 AM",
-      numberUser: "6",
-    },
-    {
-      role: "User ",
-      type: "Custom",
-      createOn: "Feb 6, 2021 11:59:41 AM",
-      numberUser: "600",
-    },
-    {
-      role: "Seller ",
-      type: "Custom",
-      createOn: "Feb 6, 2021 11:50:41 AM",
-      numberUser: "60",
+      name: "Le Minh Quan",
+      phone: "0223361215",
+      email: "namdhgch190700@gmail.com",
+      address: "250 nguyen xien",
+      business_Type: "supermarket",
+      registration_Time: "	Feb 6, 2021 10:59:41 AM",
+      account_Status: "temporarily locked",
     },
   ]);
 
@@ -168,17 +141,27 @@ function Role() {
         stripedRows
         tableStyle={{ minWidth: "50rem" }}
       >
-        <Column field="role" header="Role" style={{ width: "25%" }}></Column>
-        <Column field="type" header="Type" style={{ width: "25%" }}></Column>
+        <Column field="name" header="Name" style={{ width: "14%" }}></Column>
         <Column
-          field="createOn"
-          header="Create On"
-          style={{ width: "25%" }}
+          field="phone"
+          header="Phone Number"
+          style={{ width: "14%" }}
+        ></Column>
+        <Column field="email" header="Email" style={{ width: "14%" }}></Column>
+        <Column
+          field="address"
+          header="Address"
+          style={{ width: "14%" }}
         ></Column>
         <Column
-          field="numberUser"
-          header="Number"
-          style={{ width: "25%" }}
+          field="registration_Time"
+          header="Registration time"
+          style={{ width: "14%" }}
+        ></Column>
+        <Column
+          field="account_Status"
+          header="Account status time"
+          style={{ width: "14%" }}
         ></Column>
         <Column
           field="action"
@@ -202,4 +185,4 @@ function Role() {
   );
 }
 
-export default Role;
+export default Seller;
