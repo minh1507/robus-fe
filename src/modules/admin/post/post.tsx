@@ -153,9 +153,8 @@ const Post = () => {
   };
   return (
     <section>
-      <h1 className="title">List Of Posts</h1>
       <BreadCrumb model={items} home={home} className="bread_Crumb" />
-      <form className="mt-3" onSubmit={handleSubmit(onSearch)}>
+      <form className="Fix mt-3" onSubmit={handleSubmit(onSearch)}>
         <section>
           <InputText className="shadow-none" placeholder={t("name")} />
         </section>

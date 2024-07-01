@@ -115,15 +115,14 @@ function Header() {
           command: () => {
             navigation("/admin/seller");
           },
-          items: [
-            {
-              label: "Shop",
-              icon: "pi pi-shop ",
-              command: () => {
-                navigation("/admin/shop");
-              },
-            },
-          ],
+        },
+
+        {
+          label: "Shop",
+          icon: "pi pi-shop ",
+          command: () => {
+            navigation("/admin/shop");
+          },
         },
       ],
     },

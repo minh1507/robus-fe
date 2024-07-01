@@ -9,13 +9,26 @@ import Yup from "../../../yupConfig";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { Paginator } from "primereact/paginator";
-
+import { BreadCrumb } from "primereact/breadcrumb";
+import { Divider } from "primereact/divider";
+import { useTitle } from "../../../hooks/title/title";
+import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
-
 import "./shop.scss";
 
 export default function TemplateDemo() {
   const { t } = useTranslation();
+  const navigation = useNavigate();
+  useTitle(t("account"));
+  const [visible, setVisible] = useState(false);
+  const items = [{ label: t("account") }];
+  const home = {
+    icon: "pi pi-home",
+    command: () => {
+      navigation("/admin/home");
+    },
+  };
+
   const [products, setProducts] = useState([
     {
       store: "BOKobeSHOP",
@@ -124,8 +137,9 @@ export default function TemplateDemo() {
     setRows(event.rows);
   };
   return (
-    <div className="card">
-      <form className="mt-3" onSubmit={handleSubmit(onSearch)}>
+    <section className="shop-admin-page">
+      <BreadCrumb model={items} home={home} />
+      <form className=" Fix mt-3" onSubmit={handleSubmit(onSearch)}>
         <section>
           <InputText className="shadow-none" placeholder={t("name")} />
         </section>
@@ -133,6 +147,7 @@ export default function TemplateDemo() {
           <Button className="mt-3 shadow-none" label="Search" />
         </section>
       </form>
+      <Divider />
       <DataTable
         value={products}
         header={header}
@@ -169,6 +184,6 @@ export default function TemplateDemo() {
           onPageChange={onPageChange}
         />
       </div>
-    </div>
+    </section>
   );
 }

@@ -19,3 +19,31 @@ td {
     align-items: center;
     justify-content: center;
 }
+form.Fix {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input.shadow-none.inputSearch.p-inputtext.p-component {
+    margin-top: 15px;
+}
+
+section.flex.flex-column.gap-2.mt-3 {
+    transform: translateY(-16px);
+}
+
+.p-datatable .p-column-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+th {
+    text-align: center;
+    width: 14%;
+}
+
+td {
+    text-align: center;
+}

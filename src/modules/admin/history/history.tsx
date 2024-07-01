@@ -7,6 +7,12 @@ import { classNames } from "primereact/utils";
 import { BreadCrumb } from "primereact/breadcrumb";
 import { Paginator } from "primereact/paginator";
 import "./history.scss";
+import Yup from "../../../yupConfig";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { InputText } from "primereact/inputtext";
+import { Button } from "primereact/button";
+import { Divider } from "primereact/divider";
+import { useForm } from "react-hook-form";
 function History() {
   const { t } = useTranslation();
   const navigation = useNavigate();
@@ -53,9 +59,44 @@ function History() {
     setFirst(event.first);
     setRows(event.rows);
   };
+
+  const schema = Yup.object().shape({
+    username: Yup.string().required("Username is required"),
+    gender: Yup.string().required(""),
+    age: Yup.number()
+      .required("Age is required")
+      .positive("is not positive")
+      .integer("is not integer"),
+    number: Yup.number()
+      .required("number is required")
+      .positive("is not positive")
+      .integer("is not integer "),
+    address: Yup.string().required("Address is required"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+  const onSearch = (data: any) => {
+    console.log(data);
+  };
+
   return (
     <section>
       <BreadCrumb model={items} home={home} className="bread_Crumb" />
+      <form className=" Fix mt-3" onSubmit={handleSubmit(onSearch)}>
+        <section>
+          <InputText className="shadow-none" placeholder={t("name")} />
+        </section>
+        <section>
+          <Button className="mt-3 shadow-none" label="Search" />
+        </section>
+      </form>
+      <Divider />
       <DataTable
         value={products}
         showGridlines

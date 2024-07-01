@@ -119,7 +119,7 @@ function Transaction() {
   return (
     <section className="role-admin-page">
       <BreadCrumb model={items} home={home} />
-      <form className="mt-3" onSubmit={handleSubmit(onSearch)}>
+      <form className=" Fix mt-3" onSubmit={handleSubmit(onSearch)}>
         <section>
           <InputText className="shadow-none" placeholder={t("name")} />
         </section>
