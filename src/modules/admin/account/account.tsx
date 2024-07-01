@@ -13,41 +13,96 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Toolbar } from "primereact/toolbar";
 import { Dialog } from "primereact/dialog";
-import './account.scss'
 import { Dropdown } from "primereact/dropdown";
+import { Paginator } from "primereact/paginator";
+import "./account.scss";
 
 function Account() {
-  const { t } = useTranslation()
-  const navigation = useNavigate()
-  useTitle(t('account'))
+  const { t } = useTranslation();
+  const navigation = useNavigate();
+  useTitle(t("account"));
   const [visible, setVisible] = useState(false);
-  const items = [{ label: t('account') }];
+  const items = [{ label: t("account") }];
   const home = {
-    icon: 'pi pi-home', command: () => {
-      navigation('/admin/home')
+    icon: "pi pi-home",
+    command: () => {
+      navigation("/admin/home");
     },
-  }
-  const [products, setProducts] = useState([{
-    age: 13,
-    username: 'A1',
-    address: '2A Mĩ Đình',
-    number: '(84) 913924185',
-    gender: 'Female'
-  },
-  {
-    age: 24,
-    username: 'B1',
-    address: '3A Mĩ Đình',
-    number: '(84) 913924186',
-    gender: 'Male'
-  }]);
+  };
+
+  const [products, setProducts] = useState([
+    {
+      age: 13,
+      username: "A1",
+      address: "2A Mĩ Đình",
+      number: "(84) 913924185",
+      gender: "Female",
+    },
+    {
+      age: 24,
+      username: "B1",
+      address: "3A Mĩ Đình",
+      number: "(84) 913924186",
+      gender: "Male",
+    },
+    {
+      age: 13,
+      username: "A1",
+      address: "2A Mĩ Đình",
+      number: "(84) 913924185",
+      gender: "Female",
+    },
+    {
+      age: 24,
+      username: "B1",
+      address: "3A Mĩ Đình",
+      number: "(84) 913924186",
+      gender: "Male",
+    },
+    {
+      age: 13,
+      username: "A1",
+      address: "2A Mĩ Đình",
+      number: "(84) 913924185",
+      gender: "Female",
+    },
+    {
+      age: 24,
+      username: "B1",
+      address: "3A Mĩ Đình",
+      number: "(84) 913924186",
+      gender: "Male",
+    },
+    {
+      age: 13,
+      username: "A1",
+      address: "2A Mĩ Đình",
+      number: "(84) 913924185",
+      gender: "Female",
+    },
+    {
+      age: 24,
+      username: "B1",
+      address: "3A Mĩ Đình",
+      number: "(84) 913924186",
+      gender: "Male",
+    },
+  ]);
 
   const [selectedProducts, setSelectedProducts] = useState([]);
 
   const schema = Yup.object().shape({
-    username: Yup.string()
-      .required()
-      .label('search'),
+    username: Yup.string().required("Username is required"),
+    gender: Yup.string().required(""),
+    age: Yup.number()
+      .required("Age is required")
+      .positive("is not positive")
+      .integer("is not integer"),
+    number: Yup.number()
+      .required("number is required")
+      .positive("is not positive")
+      .integer("is not integer "),
+    address: Yup.string().required("Address is required"),
   });
 
   const {
@@ -56,16 +111,29 @@ function Account() {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-  })
+  });
   const onSearch = (data: any) => {
-    console.log(data)
-  }
+    console.log(data);
+  };
 
   const actionBodyTemplate = (rowData: any) => {
     return (
       <React.Fragment>
-        <Button icon="pi pi-pencil" rounded outlined className="mr-2 shadow-none" onClick={() => setVisible(true)} />
-        <Button icon="pi pi-trash" rounded outlined severity="danger" className="shadow-none" onClick={() => deleteProd()} />
+        <Button
+          icon="pi pi-pencil"
+          rounded
+          outlined
+          className="mr-2 shadow-none"
+          onClick={() => setVisible(true)}
+        />
+        <Button
+          icon="pi pi-trash"
+          rounded
+          outlined
+          severity="danger"
+          className="shadow-none"
+          onClick={() => deleteProd()}
+        />
       </React.Fragment>
     );
   };
@@ -73,82 +141,189 @@ function Account() {
   const leftToolbarTemplate = () => {
     return (
       <div className="flex flex-wrap gap-2">
-        <Button label="New" icon="pi pi-plus" severity="success" className="shadow-none" onClick={() => setVisible(true)} />
-        <Button label="Delete" icon="pi pi-trash" severity="danger" className="shadow-none" onClick={() => { }} disabled={!selectedProducts || !selectedProducts.length} />
+        <Button
+          label="New"
+          icon="pi pi-plus"
+          severity="success"
+          className="shadow-none"
+          onClick={() => setVisible(true)}
+        />
+        <Button
+          label="Delete"
+          icon="pi pi-trash"
+          severity="danger"
+          className="shadow-none"
+          onClick={() => {}}
+          disabled={!selectedProducts || !selectedProducts.length}
+        />
       </div>
     );
   };
 
   const rightToolbarTemplate = () => {
-    return <Button label="Export" icon="pi pi-upload" className="shadow-none" onClick={() => { }} />;
+    return (
+      <Button
+        label="Export"
+        icon="pi pi-upload"
+        className="shadow-none"
+        onClick={() => {}}
+      />
+    );
   };
 
   const deleteProd = () => {
-    console.log(1)
-  }
+    console.log(1);
+  };
 
   const [selectedCity, setSelectedCity] = useState(null);
   const cities = [
-      { name: 'Female', code: 'F' },
-      { name: 'Male', code: 'M' },
+    { name: "Female", code: "F" },
+    { name: "Male", code: "M" },
   ];
+
+  const [first, setFirst] = useState(0);
+  const [rows, setRows] = useState(10);
+
+  const onPageChange = (event: { first: number; rows: number }) => {
+    setFirst(event.first);
+    setRows(event.rows);
+  };
 
   return (
     <section className="account-admin-page">
       <BreadCrumb model={items} home={home} />
-      <form className="mt-3" onSubmit={handleSubmit(onSearch)}>
+      <form className=" Fix mt-3" onSubmit={handleSubmit(onSearch)}>
         <section>
-          <InputText className="shadow-none" placeholder={t('name')} />
+          <InputText className="shadow-none" placeholder={t("name")} />
         </section>
         <section>
           <Button className="mt-3 shadow-none" label="Search" />
         </section>
       </form>
       <Divider />
-      <Toolbar className="mb-3" left={leftToolbarTemplate} right={rightToolbarTemplate}></Toolbar>
-      <DataTable value={products} tableStyle={{ minWidth: '50rem' }} selectionMode="multiple" selection={selectedProducts}
-        onSelectionChange={(e: any) => setSelectedProducts(e.value)}>
-        <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>
-        <Column field="username" header="Username" ></Column>
-        <Column field="age" header="Age" ></Column>
-        <Column field="gender" header="Gender" ></Column>
-        <Column field="number" header="Number" ></Column>
-        <Column field="address" header="Address" ></Column>
-        <Column body={actionBodyTemplate} exportable={false} style={{ minWidth: '12rem' }}></Column>
+      <Toolbar
+        className="mb-3"
+        left={leftToolbarTemplate}
+        right={rightToolbarTemplate}
+      ></Toolbar>
+      <DataTable
+        value={products}
+        tableStyle={{ minWidth: "50rem" }}
+        selectionMode="multiple"
+        selection={selectedProducts}
+        onSelectionChange={(e: any) => setSelectedProducts(e.value)}
+      >
+        <Column
+          selectionMode="multiple"
+          headerStyle={{ width: "3rem" }}
+        ></Column>
+        <Column field="username" header="Username"></Column>
+        <Column field="age" header="Age"></Column>
+        <Column field="gender" header="Gender"></Column>
+        <Column field="number" header="Number"></Column>
+        <Column field="address" header="Address"></Column>
+        <Column
+          body={actionBodyTemplate}
+          exportable={false}
+          style={{ minWidth: "12rem" }}
+          header="Action"
+        ></Column>
       </DataTable>
 
-      <Dialog header="Account" visible={visible} className="account-admin-page-dialog" onHide={() => { if (!visible) return; setVisible(false); }}>
+      <Dialog
+        header="Account"
+        visible={visible}
+        className="account-admin-page-dialog"
+        onHide={() => {
+          if (!visible) return;
+          setVisible(false);
+        }}
+      >
         <section className="flex flex-wrap gap-4">
           <section className="flex flex-column flex-1 gap-2">
             <label htmlFor="username">Username</label>
-            <InputText placeholder="Type username" className="shadow-none w-full" id="username" aria-describedby="username-help" />
+            <InputText
+              placeholder="Type username"
+              className="shadow-none w-full"
+              id="username"
+              aria-describedby="username-help"
+              {...register("username")}
+            />
+            {errors.username && <p>{errors.username.message}</p>}
           </section>
           <section className="flex flex-column flex-1 gap-2">
             <label htmlFor="gender">Gender</label>
-            <Dropdown id='gender' value={selectedCity} onChange={(e) => setSelectedCity(e.value)} options={cities} optionLabel="name"
-              placeholder="Select gender" className="w-full shadow-none" />
+            <Dropdown
+              id="gender"
+              value={selectedCity}
+              onChange={(e) => setSelectedCity(e.value)}
+              options={cities}
+              optionLabel="name"
+              placeholder="Select gender"
+              className="w-full shadow-none"
+              // {...register("gender")}
+            />
           </section>
         </section>
 
         <section className="flex flex-wrap gap-4 mt-3">
           <section className="flex flex-column flex-1 gap-2">
             <label htmlFor="age">Age</label>
-            <InputText placeholder="Type age" className="shadow-none w-full" id="age" aria-describedby="age-help" />
+            <InputText
+              placeholder="Type age"
+              className="shadow-none w-full"
+              id="age"
+              aria-describedby="age-help"
+              {...register("age")}
+            />
+            {errors.age && <p>{errors.age.message}</p>}
           </section>
           <section className="flex flex-column flex-1 gap-2">
             <label htmlFor="number">Number</label>
-            <InputText placeholder="Type number" className="shadow-none w-full" id="number" aria-describedby="number-help" />
+            <InputText
+              placeholder="Type number"
+              className="shadow-none w-full"
+              id="number"
+              aria-describedby="number-help"
+              {...register("number")}
+            />
+            {errors.number && <p>{errors.number.message}</p>}
           </section>
         </section>
         <section className="flex flex-column gap-2 mt-3">
           <label htmlFor="address">Address</label>
-          <InputText placeholder="Type address" className="shadow-none w-full" id="address" aria-describedby="address-help" />
+          <InputText
+            placeholder="Type address"
+            className="shadow-none w-full"
+            id="address"
+            aria-describedby="address-help"
+            {...register("address")}
+          />
+          {errors.address && <p>{errors.address.message}</p>}
         </section>
 
         <div className="flex justify-content-end">
-          <Button onClick={() => { if (!visible) return; setVisible(false); }} className="shadow-none mt-4" label="Submit" />
+          <Button
+            onClick={handleSubmit((data) => {
+              console.log(data);
+              if (!visible) return;
+              setVisible(false);
+            })}
+            className="shadow-none mt-4"
+            label="Submit"
+          />
         </div>
       </Dialog>
+
+      <div className="card">
+        <Paginator
+          first={first}
+          rows={rows}
+          totalRecords={120}
+          rowsPerPageOptions={[10, 20, 30]}
+          onPageChange={onPageChange}
+        />
+      </div>
     </section>
   );
 }

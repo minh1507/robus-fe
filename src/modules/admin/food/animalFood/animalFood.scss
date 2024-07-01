@@ -1,28 +1,8 @@
-.account-admin-page-dialog{
-    width: 700px;
-}
-
-@media screen and (max-width: 765px) {
-    .account-admin-page-dialog{
-        width: 98%;
-    }
-}
-p {
-    color: red;
-}
-td {
-    text-align: center;
-}
-.p-datatable .p-column-header-content {
-    display: flex;
-    /* align-items: center; */
-    align-items: center;
-    justify-content: center;
-}
 form.Fix {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* vertical-align: middle; */
 }
 
 input.shadow-none.inputSearch.p-inputtext.p-component {

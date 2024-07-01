@@ -1,23 +1,17 @@
-.account-admin-page-dialog{
-    width: 700px;
+.bread_Crumb {
+    margin-bottom: 20px;
 }
 
-@media screen and (max-width: 765px) {
-    .account-admin-page-dialog{
-        width: 98%;
-    }
+.p-datatable .p-column-header-content {
+    text-align: center;
+    justify-content: center;
 }
-p {
-    color: red;
-}
-td {
+
+.data_table {
     text-align: center;
 }
-.p-datatable .p-column-header-content {
-    display: flex;
-    /* align-items: center; */
-    align-items: center;
-    justify-content: center;
+td{
+    text-align: center;
 }
 form.Fix {
     display: flex;
@@ -37,13 +31,4 @@ section.flex.flex-column.gap-2.mt-3 {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-th {
-    text-align: center;
-    width: 14%;
-}
-
-td {
-    text-align: center;
 }

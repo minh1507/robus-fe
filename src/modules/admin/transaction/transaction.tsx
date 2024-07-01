@@ -12,14 +12,14 @@ import { Button } from "primereact/button";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Paginator } from "primereact/paginator";
-import "./role.scss";
+import "./transaction.scss";
 
-function Role() {
+function Transaction() {
   const { t } = useTranslation();
   const navigation = useNavigate();
-  useTitle(t("role"));
+  useTitle(t("Transaction"));
   const [visible, setVisible] = useState(false);
-  const items = [{ label: t("role") }];
+  const items = [{ label: t("Transaction") }];
   const home = {
     icon: "pi pi-home",
     command: () => {
@@ -33,76 +33,49 @@ function Role() {
 
   const [products, setProducts] = useState([
     {
-      role: "Admin",
-      type: "system",
-      createOn: "Feb 6, 2021 10:59:41 AM",
-      numberUser: "6",
+      transaction_Time: "	Feb 6, 2021 10:59:41 AM",
+      name: "Ca Quynh Son",
+      email: "namdhgch190700@gmail.com",
+      trading_Code: "08564712543",
+      transaction_Amoun: "250000",
+      transaction_Content: "Mua Thit heo",
+      transaction_Status: "completed",
     },
     {
-      role: "User ",
-      type: "Custom",
-      createOn: "Feb 6, 2021 11:59:41 AM",
-      numberUser: "600",
+      transaction_Time: "	Feb 6, 2021 10:59:41 AM",
+      name: "Nguyen Thi Huyen",
+      email: "namdhgch190700@gmail.com",
+      trading_Code: "09756842531",
+      transaction_Amoun: "250000",
+      transaction_Content: "Mua Thit heo",
+      transaction_Status: "completed",
     },
     {
-      role: "Seller ",
-      type: "Custom",
-      createOn: "Feb 6, 2021 11:50:41 AM",
-      numberUser: "60",
+      transaction_Time: "	Feb 6, 2021 10:59:41 AM",
+      name: "le viet phuong",
+      email: "namdhg190700@gmail.com",
+      trading_Code: "0932201001",
+      transaction_Amoun: "250000",
+      transaction_Content: "mua đồ hộp",
+      transaction_Status: "Canceled",
     },
     {
-      role: "Admin",
-      type: "system",
-      createOn: "Feb 6, 2021 10:59:41 AM",
-      numberUser: "6",
+      transaction_Time: "	Feb 6, 2021 10:59:41 AM",
+      name: "Duong Duc Anh",
+      email: "DuongDucAnh1@gmail.com",
+      trading_Code: "08653378573",
+      transaction_Amoun: "250000",
+      transaction_Content: "mua cá kho",
+      transaction_Status: "completed",
     },
     {
-      role: "User ",
-      type: "Custom",
-      createOn: "Feb 6, 2021 11:59:41 AM",
-      numberUser: "600",
-    },
-    {
-      role: "Seller ",
-      type: "Custom",
-      createOn: "Feb 6, 2021 11:50:41 AM",
-      numberUser: "60",
-    },
-    {
-      role: "Admin",
-      type: "system",
-      createOn: "Feb 6, 2021 10:59:41 AM",
-      numberUser: "6",
-    },
-    {
-      role: "User ",
-      type: "system",
-      createOn: "Feb 6, 2021 11:59:41 AM",
-      numberUser: "600",
-    },
-    {
-      role: "Seller ",
-      type: "Custom",
-      createOn: "Feb 6, 2021 11:50:41 AM",
-      numberUser: "60",
-    },
-    {
-      role: "Admin",
-      type: "system",
-      createOn: "Feb 6, 2021 10:59:41 AM",
-      numberUser: "6",
-    },
-    {
-      role: "User ",
-      type: "Custom",
-      createOn: "Feb 6, 2021 11:59:41 AM",
-      numberUser: "600",
-    },
-    {
-      role: "Seller ",
-      type: "Custom",
-      createOn: "Feb 6, 2021 11:50:41 AM",
-      numberUser: "60",
+      transaction_Time: "	Feb 6, 2021 10:59:41 AM",
+      name: "Le Minh Quan",
+      email: "namdhgch190700@gmail.com",
+      trading_Code: "0223361215",
+      transaction_Amoun: "250000",
+      transaction_Content: "ok",
+      transaction_Status: "completed",
     },
   ]);
 
@@ -120,13 +93,6 @@ function Role() {
   const actionBodyTemplate = (rowData: any) => {
     return (
       <React.Fragment>
-        <Button
-          icon="pi pi-pencil"
-          rounded
-          outlined
-          className="mr-2 shadow-none"
-          onClick={() => setVisible(true)}
-        />
         <Button
           icon="pi pi-trash"
           rounded
@@ -168,17 +134,32 @@ function Role() {
         stripedRows
         tableStyle={{ minWidth: "50rem" }}
       >
-        <Column field="role" header="Role" style={{ width: "25%" }}></Column>
-        <Column field="type" header="Type" style={{ width: "25%" }}></Column>
         <Column
-          field="createOn"
-          header="Create On"
-          style={{ width: "25%" }}
+          field="transaction_Time"
+          header="Transaction Time"
+          style={{ width: "14%" }}
+        ></Column>
+        <Column field="name" header="Name" style={{ width: "14%" }}></Column>
+        <Column field="email" header="Email" style={{ width: "14%" }}></Column>
+        <Column
+          field="trading_Code"
+          header="Trading Code"
+          style={{ width: "14%" }}
         ></Column>
         <Column
-          field="numberUser"
-          header="Number"
-          style={{ width: "25%" }}
+          field="transaction_Amoun"
+          header="Transaction Amount"
+          style={{ width: "14%" }}
+        ></Column>
+        <Column
+          field="transaction_Content"
+          header="Transaction Content"
+          style={{ width: "14%" }}
+        ></Column>
+        <Column
+          field="transaction_Status"
+          header="Transaction Status"
+          style={{ width: "14%" }}
         ></Column>
         <Column
           field="action"
@@ -202,4 +183,4 @@ function Role() {
   );
 }
 
-export default Role;
+export default Transaction;
