@@ -1,0 +1,63 @@
+.chart-admin-page {
+  .chart-admin-page-bean-group{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+
+    .chart-admin-page-bean{
+      display: inline-flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 7px 7px;
+
+      min-height: 60px;
+
+      font-size: 2rem;
+      border-radius: 5px 5px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+      font-family: "Montserrat", sans-serif;
+      background-color: lightblue;
+      i{
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .chart-admin-page-dashboard{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    .chart-admin-page-dashboard-child{
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      border-radius: 5px 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 7px 7px;
+      width: 50%;
+      aspect-ratio: 16/9;
+      background-color: #fcfcfc;
+    }
+  }
+  .chart-admin-page-dashboard-overlay{
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px 5px;
+    padding: 7px 7px;
+    aspect-ratio: 16/6.5;
+  }
+}
+
+@media screen and (max-width: 565px) {
+  .chart-admin-page-dashboard{
+    display: flex;
+    flex-direction: column !important;
+
+    .chart-admin-page-dashboard-child{
+      width: 100% !important;
+    }
+  }
+}

@@ -9,6 +9,7 @@ import useToast from "../../../../hooks/toast/toast";
 import StringUtil from "../../../common/util/string.util";
 import { useTranslation } from "react-i18next";
 import { useCookies } from "react-cookie";
+import {Badge} from "primereact/badge";
 
 function Header() {
   const { showToast } = useToast();
@@ -91,175 +92,152 @@ function Header() {
         },
       ],
     },
+    // {
+    //   label: "Managerment",
+    //   icon: "pi pi-clipboard",
+    //   items: [
+    //     {
+    //       label: "Manage Posts",
+    //       icon: "pi pi-file",
+    //       command: () => {
+    //         navigation("/admin/post");
+    //       },
+    //     },
+    //     {
+    //       label: "Transaction Management",
+    //       icon: " pi pi-cart-minus ",
+    //       command: () => {
+    //         navigation("/admin/transaction");
+    //       },
+    //     },
+    //     {
+    //       label: "Seller Mnagement",
+    //       icon: "pi pi-user",
+    //       command: () => {
+    //         navigation("/admin/seller");
+    //       },
+    //       items: [
+    //         {
+    //           label: "Shop",
+    //           icon: "pi pi-shop ",
+    //           command: () => {
+    //             navigation("/admin/shop");
+    //           },
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
+    // {
+    //   label: "Food classification",
+    //   icon: "pi pi-clipboard",
+    //   items: [
+    //     {
+    //       label: "Frozen food",
+    //       // icon: "pi pi-file",
+    //       command: () => {
+    //         navigation("/admin/frozenFood");
+    //       },
+    //       items: [
+    //         {
+    //           label: "Unprocessed frozen foods.",
+    //           // icon: "pi pi-shop ",
+    //           command: () => {
+    //             navigation("/admin/unprocessedFood");
+    //           },
+    //         },
+    //         {
+    //           label: "Prepared frozen items",
+    //           // icon: "pi pi-shop ",
+    //           command: () => {
+    //             navigation("/admin/preparedFood");
+    //           },
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       label: "Canned food",
+    //       // icon: " pi pi-cart-minus ",
+    //       command: () => {
+    //         navigation("/admin/cannedFood");
+    //       },
+    //       items: [
+    //         {
+    //           label: "Short Term Canned Food.",
+    //           // icon: "pi pi-shop ",
+    //           command: () => {
+    //             navigation("/admin/shortTermCannedFood");
+    //           },
+    //         },
+    //         {
+    //           label: "Long Term Canned Food.",
+    //           // icon: "pi pi-shop ",
+    //           command: () => {
+    //             navigation("/admin/longTermCannedFood");
+    //           },
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       label: "Cooked food",
+    //       // icon: "pi pi-user",
+    //       command: () => {
+    //         navigation("/admin/cookedFood");
+    //       },
+    //       items: [
+    //         {
+    //           label: "Dessert food",
+    //           // icon: "pi pi-shop ",
+    //           command: () => {
+    //             navigation("/admin/dessertFood");
+    //           },
+    //         },
+    //         {
+    //           label: "Side dish",
+    //           // icon: "pi pi-shop ",
+    //           command: () => {
+    //             navigation("/admin/sideDish");
+    //           },
+    //         },
+    //         {
+    //           label: "Main dish",
+    //           // icon: "pi pi-shop ",
+    //           command: () => {
+    //             navigation("/admin/mainDish");
+    //           },
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       label: "Raw food",
+    //       command: () => {
+    //         navigation("/admin/rawFood");
+    //       },
+    //       items: [
+    //         {
+    //           label: "Animal Food.",
+    //           // icon: "pi pi-shop ",
+    //           command: () => {
+    //             navigation("/admin/animalFood");
+    //           },
+    //         },
+    //         {
+    //           label: "Plant-based Food.",
+    //           // icon: "pi pi-shop ",
+    //           command: () => {
+    //             navigation("/admin/planBasedFood");
+    //           },
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
     {
-      label: "Managerment",
-      icon: "pi pi-clipboard",
-      items: [
-        {
-          label: "Manage Posts",
-          icon: "pi pi-file",
-          command: () => {
-            navigation("/admin/post");
-          },
-        },
-        {
-          label: "Transaction Management",
-          icon: " pi pi-cart-minus ",
-          command: () => {
-            navigation("/admin/transaction");
-          },
-        },
-        {
-          label: "Seller Mnagement",
-          icon: "pi pi-user",
-          command: () => {
-            navigation("/admin/seller");
-          },
-          items: [
-            {
-              label: "Shop",
-              icon: "pi pi-shop ",
-              command: () => {
-                navigation("/admin/shop");
-              },
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: "Food classification",
-      icon: "pi pi-clipboard",
-      items: [
-        {
-          label: "Frozen food",
-          // icon: "pi pi-file",
-          command: () => {
-            navigation("/admin/frozenFood");
-          },
-          items: [
-            {
-              label: "Unprocessed frozen foods.",
-              // icon: "pi pi-shop ",
-              command: () => {
-                navigation("/admin/unprocessedFood");
-              },
-            },
-            {
-              label: "Prepared frozen items",
-              // icon: "pi pi-shop ",
-              command: () => {
-                navigation("/admin/preparedFood");
-              },
-            },
-          ],
-        },
-        {
-          label: "Canned food",
-          // icon: " pi pi-cart-minus ",
-          command: () => {
-            navigation("/admin/cannedFood");
-          },
-          items: [
-            {
-              label: "Short Term Canned Food.",
-              // icon: "pi pi-shop ",
-              command: () => {
-                navigation("/admin/shortTermCannedFood");
-              },
-            },
-            {
-              label: "Long Term Canned Food.",
-              // icon: "pi pi-shop ",
-              command: () => {
-                navigation("/admin/longTermCannedFood");
-              },
-            },
-          ],
-        },
-        {
-          label: "Cooked food",
-          // icon: "pi pi-user",
-          command: () => {
-            navigation("/admin/cookedFood");
-          },
-          items: [
-            {
-              label: "Dessert food",
-              // icon: "pi pi-shop ",
-              command: () => {
-                navigation("/admin/dessertFood");
-              },
-            },
-            {
-              label: "Side dish",
-              // icon: "pi pi-shop ",
-              command: () => {
-                navigation("/admin/sideDish");
-              },
-            },
-            {
-              label: "Main dish",
-              // icon: "pi pi-shop ",
-              command: () => {
-                navigation("/admin/mainDish");
-              },
-            },
-          ],
-        },
-        {
-          label: "Raw food",
-          command: () => {
-            navigation("/admin/rawFood");
-          },
-          items: [
-            {
-              label: "Animal Food.",
-              // icon: "pi pi-shop ",
-              command: () => {
-                navigation("/admin/animalFood");
-              },
-            },
-            {
-              label: "Plant-based Food.",
-              // icon: "pi pi-shop ",
-              command: () => {
-                navigation("/admin/planBasedFood");
-              },
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: "Chart",
-      // icon: "pi pi-server",
+      label: "Dashboard",
+      icon: "pi pi-chart-bar",
       command: () => {
         navigation("/admin/chart");
       },
-      items: [
-        {
-          label: "Bar Chart",
-          // icon: "pi pi-shield",
-          command: () => {
-            navigation("/admin/barChart");
-          },
-        },
-        {
-          label: "Line Chart",
-          // icon: "pi pi-users",
-          command: () => {
-            navigation("/admin/lineChart");
-          },
-        },
-        {
-          label: "Pie Chart",
-          // icon: "pi pi-history ",
-          command: () => {
-            navigation("/admin/pieChart");
-          },
-        },
-      ],
     },
   ];
 
@@ -274,13 +252,19 @@ function Header() {
         id="menu"
         popupAlignment="right"
       />
-      <Avatar
-        label="D"
-        size="large"
-        onClick={(event) => menu.current?.toggle(event)}
-        aria-controls="menu"
-        aria-haspopup
-      />
+      <section>
+        <i className="pi pi-bell p-overlay-badge">
+          <Badge value="2"></Badge>
+        </i>
+        <Avatar
+            className='ml-4'
+            label="D"
+            size="large"
+            onClick={(event) => menu.current?.toggle(event)}
+            aria-controls="menu"
+            aria-haspopup
+        />
+      </section>
     </header>
   );
 }

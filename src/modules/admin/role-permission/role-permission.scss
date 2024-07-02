@@ -1,0 +1,25 @@
+.role-permission-admin-page-group {
+  display: flex;
+  gap: 1rem;
+  .role-permission-admin-page-child1 {
+    width: 30%;
+  }
+  .role-permission-admin-page-child2 {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 565px) {
+  .role-permission-admin-page-group {
+    display: flex;
+    flex-direction: column !important;
+    gap: 1rem;
+    .role-permission-admin-page-child1 {
+      width: 100% !important;
+    }
+    .role-permission-admin-page-child2 {
+      width: 100%;
+    }
+  }
+}
+

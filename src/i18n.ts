@@ -25,7 +25,9 @@ const resources = {
         login: 'login',
         account: 'account',
         role: 'role',
-        setting: 'setting'
+        setting: 'setting',
+        dashboard: 'dashboard',
+        role_permission: 'role permission'
       },
     }
   },

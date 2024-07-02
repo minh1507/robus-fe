@@ -1,35 +1,19 @@
 import React, { useState } from "react";
-import { useTitle } from "../../../hooks/title/title";
+import { useTitle } from "../../../../hooks/title/title";
 import { useTranslation } from "react-i18next";
-import { BreadCrumb } from "primereact/breadcrumb";
 import { useNavigate } from "react-router-dom";
-import { InputText } from "primereact/inputtext";
-import { Divider } from "primereact/divider";
-import Yup from "../../../yupConfig";
+import Yup from "../../../../yupConfig";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "primereact/button";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import { Paginator } from "primereact/paginator";
 import "./role.scss";
 
 function Role() {
   const { t } = useTranslation();
-  const navigation = useNavigate();
   useTitle(t("role"));
   const [visible, setVisible] = useState(false);
-  const items = [{ label: t("role") }];
-  const home = {
-    icon: "pi pi-home",
-    command: () => {
-      navigation("/admin/home");
-    },
-  };
-
-  const schema = Yup.object().shape({
-    username: Yup.string().required().label("search"),
-  });
 
   const [products, setProducts] = useState([
     {
@@ -106,17 +90,6 @@ function Role() {
     },
   ]);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
-  const onSearch = (data: any) => {
-    console.log(data);
-  };
-
   const actionBodyTemplate = (rowData: any) => {
     return (
       <React.Fragment>
@@ -142,62 +115,22 @@ function Role() {
     console.log(1);
   };
 
-  const [first, setFirst] = useState(0);
-  const [rows, setRows] = useState(10);
-
-  const onPageChange = (event: { first: number; rows: number }) => {
-    setFirst(event.first);
-    setRows(event.rows);
-  };
-
   return (
     <section className="role-admin-page">
-      <BreadCrumb model={items} home={home} />
-      <form className="mt-3" onSubmit={handleSubmit(onSearch)}>
-        <section>
-          <InputText className="shadow-none" placeholder={t("name")} />
-        </section>
-        <section>
-          <Button className="mt-3 shadow-none" label="Search" />
-        </section>
-      </form>
-      <Divider />
-
       <DataTable
         value={products}
         stripedRows
-        tableStyle={{ minWidth: "50rem" }}
+        tableStyle={{ minWidth: "300px" }}
       >
-        <Column field="role" header="Role" style={{ width: "25%" }}></Column>
-        <Column field="type" header="Type" style={{ width: "25%" }}></Column>
-        <Column
-          field="createOn"
-          header="Create On"
-          style={{ width: "25%" }}
-        ></Column>
-        <Column
-          field="numberUser"
-          header="Number"
-          style={{ width: "25%" }}
-        ></Column>
+        <Column field="role" header="Name" style={{ width: "75%" }} ></Column>
         <Column
           field="action"
           header="Action"
           body={actionBodyTemplate}
           exportable={false}
-          style={{ minWidth: "12rem" }}
         ></Column>
       </DataTable>
 
-      <div className="card">
-        <Paginator
-          first={first}
-          rows={rows}
-          totalRecords={120}
-          rowsPerPageOptions={[10, 20, 30]}
-          onPageChange={onPageChange}
-        />
-      </div>
     </section>
   );
 }
